@@ -178,6 +178,9 @@ class TestClient {
     call->simple_response_reader->StartCall();
     call->simple_response_reader->Finish(&call->result.simple_response,
                                          &call->result.status, call);
+    std::cout << "Response: " << call->result.simple_response.DebugString() << std::endl;
+    std::cout << "Status: " << call->result.status.error_code() << " - " 
+          << call->result.status.error_message() << std::endl;
   }
 
   void AsyncEmptyCall(const RpcConfig& config) {
